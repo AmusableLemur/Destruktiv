@@ -1,0 +1,5 @@
+destruktiv_community:
+    resource: "@DestruktivCommunityBundle/Controller/"
+    type:     annotation
+    prefix:   /
+

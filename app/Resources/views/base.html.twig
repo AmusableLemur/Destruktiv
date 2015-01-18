@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    {% block stylesheets %}
+        {% stylesheets
+            "@bootstrap_css"
+            "@fontawesome"
+            "@stickyfooter" %}
+            <link rel="stylesheet" href="{{ asset_url }}" />
+        {% endstylesheets %}
+    {% endblock %}
+    <title>{% block title %}Destruktiv{% endblock %}</title>
+</head>
+
+<body>
+    <div class="container">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Destruktiv</a>
+                </div>
+                <div class="collapse navbar-collapse" id="navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">
+                            <i class="fa fa-fw fa-home"></i>
+                            Hem
+                        </a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="row">
+            <div class="col-md-8">
+                {% block body %}{% endblock %}
+            </div>
+            <div class="col-md-4">
+                {% if false %}
+                    <div class="sidebar">
+                        <legend>
+                            <a href="#">{{ app.user.username }}</a>
+                        </legend>
+                        <ul class="nav nav-tabs nav-stacked">
+                            <li>
+                                <a href="#">
+                                    <i class="icon-envelope icon-fixed-width"></i>
+                                    0 notifieringar
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ path("fos_user_profile_edit") }}">
+                                    <i class="icon-cogs icon-fixed-width"></i>
+                                    Inställningar
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ path("fos_user_security_logout") }}">
+                                    <i class="icon-signout icon-fixed-width"></i>
+                                    Logga ut
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                {% endif %}
+                <form action="#" method="post">
+                    <div class="form-group">
+                        <label>Användarnamn</label>
+                        <input type="text" name="_username" class="form-control" placeholder="Användarnamn" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Lösenord</label>
+                        <input type="password" name="_password" class="form-control" placeholder="Lösenord" required>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="_remember_me">
+                            Logga inte ut mig automatiskt
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-block btn-primary">
+                        <i class="fa fa-fw fa-sign-in"></i>
+                        Logga in
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p class="text-muted">
+                <i class="fa fa-fw fa-github"></i>
+                All kod finns på <a href="https://github.com/AmusableLemur/Destruktiv">GitHub</a>.
+            </p>
+        </div>
+    </footer>
+
+    {% block javascripts %}
+        {% javascripts
+            "@jquery"
+            "@bootstrap_js" %}
+            <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+    {% endblock %}
+</body>
+
+</html>
