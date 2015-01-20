@@ -44,33 +44,6 @@
                 {% block body %}{% endblock %}
             </div>
             <div class="col-md-3">
-                {% if false %}
-                    <div class="sidebar">
-                        <legend>
-                            <a href="#">{{ app.user.username }}</a>
-                        </legend>
-                        <ul class="nav nav-tabs nav-stacked">
-                            <li>
-                                <a href="#">
-                                    <i class="icon-envelope icon-fixed-width"></i>
-                                    0 notifieringar
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ path("fos_user_profile_edit") }}">
-                                    <i class="icon-cogs icon-fixed-width"></i>
-                                    Inställningar
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ path("fos_user_security_logout") }}">
-                                    <i class="icon-signout icon-fixed-width"></i>
-                                    Logga ut
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                {% endif %}
                 <form action="#" method="post">
                     <div class="form-group">
                         <label>Användarnamn</label>
