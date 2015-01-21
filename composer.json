@@ -20,7 +20,9 @@
         "incenteev/composer-parameter-handler": "~2.0",
         "twbs/bootstrap": "3.3.*",
         "fortawesome/font-awesome": "4.2.*",
-        "jquery/jquery": "1.11.*"
+        "jquery/jquery": "1.11.*",
+        "doctrine/migrations": "1.0.*@dev",
+        "doctrine/doctrine-migrations-bundle": "2.1.*@dev"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"
