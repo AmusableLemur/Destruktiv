@@ -119,3 +119,11 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+
+framework:
+    translator: ~
+
+fos_user:
+    db_driver: orm
+    firewall_name: main
+    user_class: Destruktiv\UserBundle\Entity\User
