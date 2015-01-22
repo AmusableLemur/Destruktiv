@@ -50,7 +50,7 @@
                     <input type="hidden" name="_csrf_token" value="{{ fos_csrf_provider.generateCsrfToken('authenticate') }}">
                     <div class="form-group">
                         <label>Användarnamn</label>
-                        <input type="text" name="_username" class="form-control" placeholder="Användarnamn" required>
+                        <input type="text" name="_username" class="form-control" placeholder="Användarnamn" {% if last_username is defined %}value="{{ last_username }}"{% endif %} required>
                     </div>
                     <div class="form-group">
                         <label>Lösenord</label>
