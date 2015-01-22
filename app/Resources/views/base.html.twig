@@ -46,7 +46,8 @@
                 {% block body %}{% endblock %}
             </div>
             <div class="col-md-4">
-                <form action="#" method="post">
+                <form action="{{ path("fos_user_security_check") }}" method="post">
+                    <input type="hidden" name="_csrf_token" value="{{ fos_csrf_provider.generateCsrfToken('authenticate') }}">
                     <div class="form-group">
                         <label>Användarnamn</label>
                         <input type="text" name="_username" class="form-control" placeholder="Användarnamn" required>
