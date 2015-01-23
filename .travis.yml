@@ -8,7 +8,7 @@ php:
 before_script:
     - composer install --no-interaction
     - cp app/config/parameters.yml.dist app/config/parameters.yml
-    - php bin/console assets:install web --symlink
-    - php bin/console assetic:dump
+    - php app/console assets:install web --symlink
+    - php app/console assetic:dump
 
 script: phpunit -c app/phpunit.xml.dist
