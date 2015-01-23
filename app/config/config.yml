@@ -31,6 +31,8 @@ twig:
     strict_variables: "%kernel.debug%"
     globals:
         fos_csrf_provider: "@form.csrf_provider"
+    form:
+        resources: ['bootstrap_3_layout.html.twig']
 
 # Assetic Configuration
 assetic:
