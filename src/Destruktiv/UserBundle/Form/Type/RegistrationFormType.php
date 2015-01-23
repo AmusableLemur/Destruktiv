@@ -12,7 +12,9 @@ class RegistrationFormType extends BaseRegistrationFormType
     {
         parent::buildForm($builder, $options);
 
-        $builder->add('invitation', 'destruktiv_invitation_type');
+        $builder->add('invitation', 'destruktiv_invitation_type', [
+        	"label" => "Inbjudan (alfanumerisk kod)"
+        ]);
     }
 
     public function getName()
