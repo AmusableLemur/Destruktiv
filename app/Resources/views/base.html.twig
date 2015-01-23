@@ -50,11 +50,11 @@
                         <small>{{ app.user.email }}</small>
                     </h4>
                     <div class="list-group">
-                        <a href="#" class="list-group-item">
+                        <a href="{{ path("fos_user_profile_show") }}" class="list-group-item">
                             <i class="fa fa-user fa-fw"></i>
                             Profil
                         </a>
-                        <a href="#" class="list-group-item">
+                        <a href="{{ path("fos_user_security_logout") }}" class="list-group-item">
                             <i class="fa fa-sign-out fa-fw"></i>
                             Logga ut
                         </a>
