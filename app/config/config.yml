@@ -129,3 +129,6 @@ fos_user:
     db_driver: orm
     firewall_name: main
     user_class: Destruktiv\UserBundle\Entity\User
+    registration:
+        form:
+            type: destruktiv_user_registration
