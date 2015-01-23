@@ -12,9 +12,36 @@ class RegistrationFormType extends BaseRegistrationFormType
     {
         parent::buildForm($builder, $options);
 
-        $builder->add('invitation', 'destruktiv_invitation_type', [
-        	"label" => "Inbjudan (alfanumerisk kod)"
-        ]);
+        $builder
+            ->add('username', 'text', [
+                "label" => "Användarnamn",
+                "attr" => [
+                    "placeholder" => "Användarnamn"
+                ]
+            ])
+            ->remove('email')
+            ->add('plainPassword', 'repeated', [
+                'type' => 'password',
+                'first_options' => [
+                    'label' => 'Lösenord',
+                    'attr' => [
+                        "placeholder" => "Lösenord"
+                    ]
+                ],
+                'second_options' => [
+                    'label' => 'Lösenord (igen)',
+                    'attr' => [
+                        "placeholder" => "Lösenord (igen)"
+                    ]
+                ],
+                'invalid_message' => 'Lösenorden matchar inte',
+            ])
+            ->add('invitation', 'destruktiv_invitation_type', [
+                "label" => "Inbjudan",
+                "attr" => [
+                    "placeholder" => "Alfanumerisk kod"
+                ]
+            ]);
     }
 
     public function getName()
