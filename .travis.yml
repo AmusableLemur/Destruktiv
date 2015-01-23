@@ -12,7 +12,7 @@ before_script:
     - php app/console doctrine:schema:create --env=test
 
 script:
-    - phpunit --coverage-text
+    - phpunit -c app/
 
 notifications:
     email: "rasmus@rasmuslarsson.se"
