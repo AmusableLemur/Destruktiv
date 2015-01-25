@@ -29,6 +29,10 @@ framework:
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
+    globals:
+        fos_csrf_provider: "@form.csrf_provider"
+    form:
+        resources: ['bootstrap_3_layout.html.twig']
 
 # Assetic Configuration
 assetic:
@@ -125,3 +129,14 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+
+framework:
+    translator: ~
+
+fos_user:
+    db_driver: orm
+    firewall_name: main
+    user_class: Destruktiv\UserBundle\Entity\User
+    registration:
+        form:
+            type: destruktiv_user_registration

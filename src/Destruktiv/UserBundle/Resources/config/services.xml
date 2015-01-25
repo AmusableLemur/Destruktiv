@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+
+        <service id="destruktiv.registration.form.type" class="Destruktiv\UserBundle\Form\Type\RegistrationFormType">
+            <argument>%fos_user.model.user.class%</argument>
+            <tag name="form.type" alias="destruktiv_user_registration" />
+        </service>
+
+        <service id="destruktiv.invitation.form.type" class="Destruktiv\UserBundle\Form\Type\InvitationFormType">
+            <argument type="service" id="destruktiv.invitation.form.data_transformer"/>
+            <tag name="form.type" alias="destruktiv_invitation_type" />
+        </service>
+
+        <service id="destruktiv.invitation.form.data_transformer" class="Destruktiv\UserBundle\Form\DataTransformer\InvitationToCodeTransformer">
+            <argument type="service" id="doctrine.orm.entity_manager"/>
+        </service>
+
+    </services>
+</container>
