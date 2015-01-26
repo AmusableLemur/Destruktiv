@@ -24,6 +24,13 @@ class User extends BaseUser
     protected $id;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(type="string", length=255)
+     */
+    protected $name;
+
+    /**
      * @ORM\OneToOne(targetEntity="Invitation", mappedBy="user")
      * @ORM\JoinColumn(referencedColumnName="code")
      * @Assert\NotNull(message="Du behöver en giltig inbjudan för att registrera ett konto", groups={"Registration"})
@@ -56,5 +63,28 @@ class User extends BaseUser
     public function getInvitation()
     {
         return $this->invitation;
+    }
+
+    /**
+     * Set name
+     *
+     * @param \varchar $name
+     * @return User
+     */
+    public function setName(\varchar $name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return \varchar 
+     */
+    public function getName()
+    {
+        return $this->name;
     }
 }
