@@ -68,10 +68,10 @@ class User extends BaseUser
     /**
      * Set name
      *
-     * @param \varchar $name
+     * @param string $name
      * @return User
      */
-    public function setName(\varchar $name)
+    public function setName($name)
     {
         $this->name = $name;
 
@@ -81,7 +81,7 @@ class User extends BaseUser
     /**
      * Get name
      *
-     * @return \varchar 
+     * @return string 
      */
     public function getName()
     {
