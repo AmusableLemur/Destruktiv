@@ -29,7 +29,7 @@ class RegistrationFormType extends BaseRegistrationFormType
                     ]
                 ],
                 'second_options' => [
-                    'label' => 'Lösenord (igen)',
+                    'label' => 'Verifiera',
                     'attr' => [
                         "placeholder" => "Lösenord (igen)"
                     ]
