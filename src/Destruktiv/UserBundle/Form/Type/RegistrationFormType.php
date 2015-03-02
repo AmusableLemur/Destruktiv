@@ -19,7 +19,12 @@ class RegistrationFormType extends BaseRegistrationFormType
                     "placeholder" => "Användarnamn"
                 ]
             ])
-            ->remove('email')
+            ->add('email', 'email', [
+                "label" => "E-post",
+                "attr" => [
+                    "placeholder" => "E-post"
+                ]
+            ])
             ->add('plainPassword', 'repeated', [
                 'type' => 'password',
                 'first_options' => [
