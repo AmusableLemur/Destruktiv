@@ -35,12 +35,6 @@ class RegistrationFormType extends BaseRegistrationFormType
                     ]
                 ],
                 'invalid_message' => 'Lösenorden matchar inte',
-            ])
-            ->add('invitation', 'destruktiv_invitation_type', [
-                "label" => "Inbjudan",
-                "attr" => [
-                    "placeholder" => "Alfanumerisk kod"
-                ]
             ]);
     }
 

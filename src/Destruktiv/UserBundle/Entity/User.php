@@ -31,13 +31,6 @@ class User extends BaseUser
     protected $name;
 
     /**
-     * @ORM\OneToOne(targetEntity="Invitation", mappedBy="user")
-     * @ORM\JoinColumn(referencedColumnName="code")
-     * @Assert\NotNull(message="Du behöver en giltig inbjudan för att registrera ett konto", groups={"Registration"})
-     */
-    protected $invitation;
-
-    /**
      * Constructor
      */
     public function __construct()
@@ -53,16 +46,6 @@ class User extends BaseUser
     public function getId()
     {
         return $this->id;
-    }
-
-    public function setInvitation(Invitation $invitation)
-    {
-        $this->invitation = $invitation;
-    }
-
-    public function getInvitation()
-    {
-        return $this->invitation;
     }
 
     /**
