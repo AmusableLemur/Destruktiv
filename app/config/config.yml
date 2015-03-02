@@ -78,6 +78,8 @@ assetic:
                 - cssrewrite
         stickyfooter:
             inputs: %kernel.root_dir%/Resources/public/css/sticky-footer.css
+        default_css:
+            inputs: %kernel.root_dir%/Resources/public/css/style.css
         bootstrap_js:
             inputs:
                 - %kernel.root_dir%/../vendor/twbs/bootstrap/js/affix.js
