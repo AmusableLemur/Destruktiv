@@ -14,7 +14,7 @@
             <link rel="stylesheet" href="{{ asset_url }}" />
         {% endstylesheets %}
     {% endblock %}
-    <link href="{{ asset("favicon.png") }}" rel="shortcut icon"> 
+    <link href="{{ asset("favicon.png") }}" rel="shortcut icon">
     <title>{% block title %}Destruktiv{% endblock %}</title>
 </head>
 
@@ -32,7 +32,7 @@
                 </div>
                 <div class="collapse navbar-collapse" id="navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="#">
+                        <li class="active"><a href="{{ path("home") }}">
                             Hem
                         </a></li>
                     </ul>
