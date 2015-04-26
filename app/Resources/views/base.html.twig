@@ -46,7 +46,7 @@
             </div>
             <div class="col-md-4">
                 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                    <h4>
+                    <h4 class="username">
                         {{ app.user.username }}<br>
                         <small>{{ app.user.email }}</small>
                     </h4>
