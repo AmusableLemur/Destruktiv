@@ -52,4 +52,9 @@ class ThreadControllerTest extends WebTestCase
     }
 
     */
+
+    public function dummyTest()
+    {
+        $this->assertTrue(true);
+    }
 }
