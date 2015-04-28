@@ -2,3 +2,7 @@
     line-height: 1em;
     margin-top: 0;
 }
+
+table a.thread:not(.btn), .table a.thread:not(.btn) {
+    text-decoration: none;
+}

@@ -16,7 +16,7 @@
         <tbody>
             {% for entity in entities %}
                 <tr>
-                    <td><a href="{{ path('forum_show', { 'id': entity.id }) }}">{{ entity.title }}</a> (0)</td>
+                    <td><a href="{{ path('forum_show', { 'id': entity.id }) }}" class="thread">{{ entity.title }}</a> (0)</td>
                     <td><a href="{{ path('forum_show', { 'id': entity.id }) }}">{{ entity.author }}</a></td>
                     <td class="text-right">{{ entity.dateCreated|date("Y-m-d H:i") }}</td>
                 </tr>
