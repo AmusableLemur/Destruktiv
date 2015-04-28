@@ -51,6 +51,11 @@ class ForumController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+
+            $entity->setAuthor($this->getUser());
+            $entity->setDateCreated(new \DateTime("now"));
+            $entity->setDateUpdated(new \DateTime("now"));
+
             $em->persist($entity);
             $em->flush();
 
@@ -77,7 +82,20 @@ class ForumController extends Controller
             'method' => 'POST',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Create'));
+        $form
+            ->add("content", "textarea", [
+                "label" => false,
+                "attr" => [
+                    "placeholder" => "Innehåll"
+                ]
+            ])
+            ->add('submit', 'submit', [
+                'label' => 'Skapa tråd',
+                "attr" => [
+                    "class" => "btn-primary"
+                ]
+            ])
+        ;
 
         return $form;
     }

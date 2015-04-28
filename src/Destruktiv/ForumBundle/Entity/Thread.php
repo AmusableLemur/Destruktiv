@@ -28,9 +28,24 @@ class Thread
     private $title;
 
     /**
+     * @ORM\Column(type="datetime")
+     */
+    private $dateCreated;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $dateUpdated;
+
+    /**
      * @ORM\ManyToOne(targetEntity="Destruktiv\UserBundle\Entity\User", inversedBy="threads")
      */
     private $author;
+
+    /**
+     * Only used to create initial post
+     */
+    private $content;
 
     /**
      * @ORM\OneToMany(targetEntity="Post", mappedBy="thread")
@@ -124,10 +139,79 @@ class Thread
     /**
      * Get author
      *
-     * @return \Destruktiv\UserBundle\Entity\User 
+     * @return \Destruktiv\UserBundle\Entity\User
      */
     public function getAuthor()
     {
         return $this->author;
+    }
+
+    /**
+     * Set dateCreated
+     *
+     * @param \DateTime $dateCreated
+     * @return Thread
+     */
+    public function setDateCreated($dateCreated)
+    {
+        $this->dateCreated = $dateCreated;
+
+        return $this;
+    }
+
+    /**
+     * Get dateCreated
+     *
+     * @return \DateTime
+     */
+    public function getDateCreated()
+    {
+        return $this->dateCreated;
+    }
+
+    /**
+     * Set dateUpdated
+     *
+     * @param \DateTime $dateUpdated
+     * @return Thread
+     */
+    public function setDateUpdated($dateUpdated)
+    {
+        $this->dateUpdated = $dateUpdated;
+
+        return $this;
+    }
+
+    /**
+     * Get dateUpdated
+     *
+     * @return \DateTime
+     */
+    public function getDateUpdated()
+    {
+        return $this->dateUpdated;
+    }
+
+    /**
+     * Set content
+     *
+     * @param string $content
+     * @return Thread
+     */
+    public function setContent($content)
+    {
+        $this->content = $content;
+
+        return $this;
+    }
+
+    /**
+     * Get content
+     *
+     * @return string
+     */
+    public function getContent()
+    {
+        return $this->content;
     }
 }

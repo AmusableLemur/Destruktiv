@@ -8,6 +8,17 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class ThreadType extends AbstractType
 {
+    public function buildForm(FormBuilderInterface $builder, array $options)
+    {
+        $builder
+            ->add('title', 'text', [
+                "label" => "Titel",
+                "attr" => [
+                    "placeholder" => "Titel"
+                ]
+            ])
+        ;
+    }
 
     /**
      * @param OptionsResolverInterface $resolver
