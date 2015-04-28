@@ -20,6 +20,7 @@ class AppKernel extends Kernel
             new FOS\UserBundle\FOSUserBundle(),
             new Destruktiv\CommunityBundle\DestruktivCommunityBundle(),
             new Destruktiv\UserBundle\DestruktivUserBundle(),
+            new Destruktiv\ForumBundle\DestruktivForumBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

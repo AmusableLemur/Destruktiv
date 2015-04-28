@@ -1,3 +1,8 @@
+destruktiv_forum:
+    resource: "@DestruktivForumBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 destruktiv_user:
     resource: "@DestruktivUserBundle/Controller/"
     type:     annotation
