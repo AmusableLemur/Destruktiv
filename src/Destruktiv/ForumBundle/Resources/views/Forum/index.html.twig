@@ -5,29 +5,22 @@
         <li class="active">Forum</li>
     </ul>
 
-    <table class="table table-bordered table-striped">
+    <table class="table table-striped">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Actions</th>
+                <th class="col-md-6">Titel (Inlägg)</th>
+                <th class="col-md-3">Trådstartare</th>
+                <th class="col-md-3 text-right">Uppdaterad</th>
             </tr>
         </thead>
         <tbody>
-        {% for entity in entities %}
-            <tr>
-                <td><a href="{{ path('forum_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('forum_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('forum_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
-                </ul>
-                </td>
-            </tr>
-        {% endfor %}
+            {% for entity in entities %}
+                <tr>
+                    <td><a href="{{ path('forum_show', { 'id': entity.id }) }}">{{ entity.title }}</a> (0)</td>
+                    <td><a href="{{ path('forum_show', { 'id': entity.id }) }}">{{ entity.author }}</a></td>
+                    <td class="text-right">{{ entity.dateCreated|date("Y-m-d H:i") }}</td>
+                </tr>
+            {% endfor %}
         </tbody>
     </table>
 
