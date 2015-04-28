@@ -3,11 +3,6 @@ destruktiv_forum:
     type:     annotation
     prefix:   /
 
-destruktiv_user:
-    resource: "@DestruktivUserBundle/Controller/"
-    type:     annotation
-    prefix:   /
-
 destruktiv_community:
     resource: "@DestruktivCommunityBundle/Controller/"
     type:     annotation
