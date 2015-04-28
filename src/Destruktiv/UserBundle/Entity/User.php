@@ -31,6 +31,12 @@ class User extends BaseUser
     protected $name;
 
     /**
+     * @ORM\OneToMany(targetEntity="Destruktiv\ForumBundle\Entity\Thread", mappedBy="author")
+     **/
+    private $threads;
+
+
+    /**
      * Constructor
      */
     public function __construct()
@@ -41,7 +47,7 @@ class User extends BaseUser
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -64,10 +70,43 @@ class User extends BaseUser
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * Add threads
+     *
+     * @param \Destruktiv\ForumBundle\Entity\Thread $threads
+     * @return User
+     */
+    public function addThread(\Destruktiv\ForumBundle\Entity\Thread $threads)
+    {
+        $this->threads[] = $threads;
+
+        return $this;
+    }
+
+    /**
+     * Remove threads
+     *
+     * @param \Destruktiv\ForumBundle\Entity\Thread $threads
+     */
+    public function removeThread(\Destruktiv\ForumBundle\Entity\Thread $threads)
+    {
+        $this->threads->removeElement($threads);
+    }
+
+    /**
+     * Get threads
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getThreads()
+    {
+        return $this->threads;
     }
 }
