@@ -5,24 +5,19 @@
         <li class="active">Forum</li>
     </ul>
 
-    <table class="table table-bordered table-striped">
-        <thead>
-            <tr>
-                <th class="col-md-6">Titel (Inlägg)</th>
-                <th class="col-md-3">Trådstartare</th>
-                <th class="col-md-3 text-right">Uppdaterad</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for entity in entities %}
-                <tr>
-                    <td><a href="{{ path('forum_show', { 'id': entity.id }) }}" class="thread">{{ entity.title }}</a> (0)</td>
-                    <td><a href="{{ path('forum_show', { 'id': entity.id }) }}">{{ entity.author }}</a></td>
-                    <td class="text-right">{{ entity.dateCreated|date("Y-m-d H:i") }}</td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+    <blockquote>
+        <p>This is a quote.</p>
+        <small>jooize</small>
+    </blockquote>
+
+    <div class="list-group">
+        {% for entity in entities %}
+            <a href="{{ path('forum_show', { 'id': entity.id }) }}" class="list-group-item">
+                <h4 class="list-group-item-heading">{{ entity.title }} <small>startad av {{ entity.author }}</small></h4>
+                <p class="list-group-item-text"><b>{{ entity.posts|length|number_format }}</b> inlägg &mdash; <span class="text-muted">Senaste</span> {{ entity.dateCreated|date("Y-m-d H:i") }}</p>
+            </a>
+        {% endfor %}
+    </div>
 
     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
         <a href="{{ path('forum_new') }}" class="btn btn-primary btn-sm pull-right">
