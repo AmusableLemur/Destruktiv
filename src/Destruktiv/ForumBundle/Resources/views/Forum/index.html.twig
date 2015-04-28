@@ -1,9 +1,11 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <h1>Thread list</h1>
+    <ul class="breadcrumb">
+        <li class="active">Forum</li>
+    </ul>
 
-    <table class="records_list">
+    <table class="table table-bordered table-striped">
         <thead>
             <tr>
                 <th>Id</th>
@@ -29,11 +31,10 @@
         </tbody>
     </table>
 
-        <ul>
-        <li>
-            <a href="{{ path('forum_new') }}">
-                Create a new entry
-            </a>
-        </li>
-    </ul>
-    {% endblock %}
+    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+        <a href="{{ path('forum_new') }}" class="btn btn-primary btn-sm pull-right">
+            <i class="fa fa-plus fa-fw"></i>
+            Ny tråd
+        </a>
+    {% endif %}
+{% endblock %}
