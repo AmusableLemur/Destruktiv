@@ -13,7 +13,7 @@ use Destruktiv\ForumBundle\Form\PostType;
 /**
  * Post controller.
  *
- * @Route("/thread/{thread}")
+ * @Route("/forum/{thread}")
  */
 class ThreadController extends Controller
 {
@@ -25,24 +25,28 @@ class ThreadController extends Controller
      * @Method("POST")
      * @Template("DestruktivForumBundle:Post:new.html.twig")
      */
-    public function createAction(Request $request)
+    public function createAction(Request $request, $thread)
     {
         $entity = new Post();
-        $form = $this->createCreateForm($entity);
+        $form = $this->createCreateForm($entity, $thread);
         $form->handleRequest($request);
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $threadEntity = $em->getRepository('DestruktivForumBundle:Thread')->findOneById($thread);
+
+            $entity->setThread($threadEntity);
+            $entity->setAuthor($this->getUser());
+            $entity->setDateCreated(new \DateTime("now"));
+            $entity->setDateUpdated(new \DateTime("now"));
+
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('post_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('forum_show', array('id' => $thread)));
         }
 
-        return array(
-            'entity' => $entity,
-            'form'   => $form->createView(),
-        );
+        return $this->redirect($this->generateUrl('forum_show', array('id' => $thread)));
     }
 
     /**
@@ -52,10 +56,10 @@ class ThreadController extends Controller
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createCreateForm(Post $entity)
+    private function createCreateForm(Post $entity, $thread)
     {
         $form = $this->createForm(new PostType(), $entity, array(
-            'action' => $this->generateUrl('post_create'),
+            'action' => $this->generateUrl('post_create', ["thread" => $thread]),
             'method' => 'POST',
         ));
 

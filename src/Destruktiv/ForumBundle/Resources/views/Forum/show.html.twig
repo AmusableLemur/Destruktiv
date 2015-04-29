@@ -23,21 +23,15 @@
     </h1>
 
     <div class="list-group">
-        <div class="list-group-item">
-            <h4 class="list-group-item-heading">
-                {{ entity.author }}
-                <small>{{ entity.dateCreated|date("Y-m-d H:i") }}</small>
-            </h4>
-            <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </div>
-        <div class="list-group-item">
-            <h4 class="list-group-item-heading">{{ entity.author }} <small>{{ entity.dateCreated|date("Y-m-d H:i") }}</small></h4>
-            <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </div>
-        <div class="list-group-item">
-            <h4 class="list-group-item-heading">{{ entity.author }} <small>{{ entity.dateCreated|date("Y-m-d H:i") }}</small></h4>
-            <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </div>
+        {% for post in entity.posts %}
+            <div class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    {{ post.author }}
+                    <small>{{ post.dateCreated|date("Y-m-d H:i") }}</small>
+                </h4>
+                <p class="list-group-item-text">{{ post.content }}</p>
+            </div>
+        {% endfor %}
     </div>
 
     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
