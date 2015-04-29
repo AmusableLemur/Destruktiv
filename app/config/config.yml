@@ -133,7 +133,8 @@ swiftmailer:
     spool:     { type: memory }
 
 framework:
-    translator: ~
+    default_locale: sv_SE
+    translator: { fallback: en }
 
 fos_user:
     db_driver: orm
