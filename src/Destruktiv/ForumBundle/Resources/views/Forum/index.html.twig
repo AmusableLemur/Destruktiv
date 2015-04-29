@@ -14,7 +14,7 @@
         {% for entity in entities %}
             <a href="{{ path('forum_show', { 'id': entity.id }) }}" class="list-group-item">
                 <h4 class="list-group-item-heading">{{ entity.title }} <small>startad av {{ entity.author }}</small></h4>
-                <p class="list-group-item-text"><b>{{ entity.posts|length|number_format }}</b> inlägg &mdash; <span class="text-muted">Senaste</span> {{ entity.dateCreated|date("Y-m-d H:i") }}</p>
+                <p class="list-group-item-text"><b>{{ entity.posts|length|number_format }}</b> inlägg &mdash; <span class="text-muted">Senaste</span> {{ entity.dateUpdated|date("Y-m-d H:i") }}</p>
             </a>
         {% endfor %}
     </div>

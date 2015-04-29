@@ -34,6 +34,7 @@ class ThreadController extends Controller
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $threadEntity = $em->getRepository('DestruktivForumBundle:Thread')->findOneById($thread);
+            $threadEntity->setDateUpdated(new \DateTime("now"));
 
             $entity->setThread($threadEntity);
             $entity->setAuthor($this->getUser());
@@ -41,6 +42,7 @@ class ThreadController extends Controller
             $entity->setDateUpdated(new \DateTime("now"));
 
             $em->persist($entity);
+            $em->persist($threadEntity);
             $em->flush();
 
             return $this->redirect($this->generateUrl('forum_show', array('id' => $thread)));

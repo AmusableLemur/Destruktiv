@@ -7,17 +7,19 @@
     </ul>
 
     <h1>
-        <div class="btn-group pull-right">
-            <a href="#" class="btn btn-default">
-                <i class="fa fa-pencil fa-fw"></i>
-            </a>
-            <a href="#" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                <span class="caret"></span>
-            </a>
-            <ul class="dropdown-menu">
-                <li><a href="#">Radera tråd</a></li>
-            </ul>
-        </div>
+        {% if is_granted("ROLE_ADMIN") %}
+            <div class="btn-group pull-right">
+                <a href="#" class="btn btn-default">
+                    <i class="fa fa-pencil fa-fw"></i>
+                </a>
+                <a href="#" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Radera tråd</a></li>
+                </ul>
+            </div>
+        {% endif %}
 
         {{ entity.title }}
     </h1>
