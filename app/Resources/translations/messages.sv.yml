@@ -1,0 +1,10 @@
+# Time ago in words - Twig Extension
+less than %seconds seconds ago: mindre än %seconds sekunder sedan
+half a minute ago: en halv minut sedan
+less than a minute ago: mindre än en halv minut sedan
+1 minute ago: 1 minut sedan
+%minutes minutes ago: %minutes minuter sedan
+about 1 hour ago: 1 timme sedan
+about %hours hours ago: %hours timmar sedan
+1 day ago: 1 dag sedan
+%days days ago: %days dagar sedan
