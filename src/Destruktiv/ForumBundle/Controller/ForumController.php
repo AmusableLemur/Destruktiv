@@ -31,7 +31,7 @@ class ForumController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('DestruktivForumBundle:Thread')->findAll();
+        $entities = $em->getRepository('DestruktivForumBundle:Thread')->findBy([], ["dateUpdated" => "DESC"]);
 
         $entity = new Thread();
 
