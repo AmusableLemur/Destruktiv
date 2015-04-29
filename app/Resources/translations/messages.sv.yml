@@ -8,3 +8,4 @@ about 1 hour ago: 1 timme sedan
 about %hours hours ago: %hours timmar sedan
 1 day ago: 1 dag sedan
 %days days ago: %days dagar sedan
+"{1} 1 month ago |]1,Inf[ %months months ago": "{1} 1 månad sedan |],Inf[ %months månader sedan"
