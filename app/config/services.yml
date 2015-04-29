@@ -9,6 +9,13 @@ services:
         arguments: [@translator]
         tags:
             - { name: twig.extension }
+    aptoma.commonmark:
+        class: Aptoma\Twig\Extension\MarkdownEngine\PHPLeagueCommonMarkEngine
+    aptoma.twig.markdown:
+        class: Aptoma\Twig\Extension\MarkdownExtension
+        arguments: [@aptoma.commonmark]
+        tags:
+            - { name: twig.extension }
 #    service_name:
 #        class: AppBundle\Directory\ClassName
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
