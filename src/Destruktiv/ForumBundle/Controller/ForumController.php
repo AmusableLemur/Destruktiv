@@ -7,7 +7,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Destruktiv\ForumBundle\Entity\Post;
 use Destruktiv\ForumBundle\Entity\Thread;
+use Destruktiv\ForumBundle\Form\PostType;
 use Destruktiv\ForumBundle\Form\ThreadType;
 
 /**
@@ -144,11 +146,38 @@ class ForumController extends Controller
         }
 
         $deleteForm = $this->createDeleteForm($id);
+        $postForm = $this->createPostForm($id);
 
         return array(
             'entity'      => $entity,
             'delete_form' => $deleteForm->createView(),
+            'post_form'   => $postForm->createView()
         );
+    }
+
+    /**
+     * Creates a form to create a Post entity.
+     *
+     * @param mixed $id The entity id
+     *
+     * @return \Symfony\Component\Form\Form The form
+     */
+    private function createPostForm($id)
+    {
+        $entity = new Post();
+        $form = $this->createForm(new PostType(), $entity, array(
+            'action' => $this->generateUrl('post_create', ["thread" => $id]),
+            'method' => 'POST',
+        ));
+
+        $form->add('submit', 'submit', [
+            'label' => 'Svara',
+            "attr" => [
+                "class" => "btn-primary"
+            ]
+        ]);
+
+        return $form;
     }
 
     /**
@@ -200,6 +229,7 @@ class ForumController extends Controller
 
         return $form;
     }
+
     /**
      * Edits an existing Thread entity.
      *
@@ -237,6 +267,7 @@ class ForumController extends Controller
             'delete_form' => $deleteForm->createView(),
         );
     }
+
     /**
      * Deletes a Thread entity.
      *

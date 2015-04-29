@@ -35,6 +35,11 @@ class User extends BaseUser
      **/
     private $threads;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Destruktiv\ForumBundle\Entity\Post", mappedBy="author")
+     **/
+    private $posts;
+
 
     /**
      * Constructor
@@ -103,7 +108,7 @@ class User extends BaseUser
     /**
      * Get threads
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getThreads()
     {
