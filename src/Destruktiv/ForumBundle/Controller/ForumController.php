@@ -31,8 +31,11 @@ class ForumController extends Controller
 
         $entities = $em->getRepository('DestruktivForumBundle:Thread')->findAll();
 
+        $entity = new Thread();
+
         return array(
             'entities' => $entities,
+            'form'     => $this->createCreateForm($entity)->createView()
         );
     }
 
@@ -85,6 +88,7 @@ class ForumController extends Controller
         $form
             ->add("content", "textarea", [
                 "label" => false,
+                "required" => false,
                 "attr" => [
                     "placeholder" => "Innehåll"
                 ]

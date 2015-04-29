@@ -19,6 +19,8 @@
         {% endfor %}
     </div>
 
+    {{ form(form) }}
+
     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
         <a href="{{ path('forum_new') }}" class="btn btn-primary btn-sm pull-right">
             <i class="fa fa-plus fa-fw"></i>

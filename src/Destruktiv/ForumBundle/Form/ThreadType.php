@@ -12,7 +12,7 @@ class ThreadType extends AbstractType
     {
         $builder
             ->add('title', 'text', [
-                "label" => "Titel",
+                "label" => false,
                 "attr" => [
                     "placeholder" => "Titel"
                 ]
