@@ -1,15 +1,10 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <h1>Thread creation</h1>
+    <ul class="breadcrumb">
+        <li><a href="{{ path("forum") }}">Forum</a></li>
+        <li class="active">Ny tråd</li>
+    </ul>
 
     {{ form(form) }}
-
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('forum') }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
 {% endblock %}

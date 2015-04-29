@@ -1,7 +1,10 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <h1>Thread</h1>
+    <ul class="breadcrumb">
+        <li><a href="{{ path("forum") }}">Forum</a></li>
+        <li class="active">{{ entity.title }}</li>
+    </ul>
 
     <table class="record_properties">
         <tbody>
