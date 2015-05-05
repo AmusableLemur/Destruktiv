@@ -11,7 +11,7 @@
     </blockquote>
 
     <div class="list-group">
-        {% for entity in entities %}
+        {% for entity in pagination %}
             <a href="{{ path('forum_show', { 'id': entity.id }) }}" class="list-group-item">
                 <h4 class="list-group-item-heading">{{ entity.title }} <small>startad av {{ entity.author }}</small></h4>
                 <p class="list-group-item-text"><b>{{ entity.posts|length|number_format }}</b> inlägg &mdash; <span class="text-muted">Senaste</span> <span title="{{ entity.dateUpdated|date("Y-m-d H:i") }}">{{ entity.dateUpdated|time_ago_in_words }}</span></p>
@@ -22,4 +22,8 @@
     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
         {{ form(form) }}
     {% endif %}
+
+    <div class="text-center">
+        {{ knp_pagination_render(pagination) }}
+    </div>
 {% endblock %}

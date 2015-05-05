@@ -27,16 +27,23 @@ class ForumController extends Controller
      * @Method("GET")
      * @Template()
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('DestruktivForumBundle:Thread')->findBy([], ["dateUpdated" => "DESC"]);
+        $query = $em->createQuery('SELECT t FROM DestruktivForumBundle:Thread t ORDER BY t.dateUpdated DESC');
+        $paginator = $this->get("knp_paginator");
+
+        $pagination = $paginator->paginate(
+            $query,
+            $request->query->get("page", 1),
+            10
+        );
 
         $entity = new Thread();
 
         return array(
-            'entities' => $entities,
+            'pagination' => $pagination,
             'form'     => $this->createCreateForm($entity)->createView()
         );
     }
