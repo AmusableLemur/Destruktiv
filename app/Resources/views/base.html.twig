@@ -32,10 +32,10 @@
                 </div>
                 <div class="collapse navbar-collapse" id="navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <li {% if page == "home" %}class="active"{% endif %}><a href="{{ path("home") }}">
+                        <li {% if page is defined and page == "home" %}class="active"{% endif %}><a href="{{ path("home") }}">
                             Hem
                         </a></li>
-                        <li {% if page == "forum" %}class="active"{% endif %}><a href="{{ path("forum") }}">
+                        <li {% if page is defined and page == "forum" %}class="active"{% endif %}><a href="{{ path("forum") }}">
                             Forum
                         </a></li>
                     </ul>
