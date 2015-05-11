@@ -85,6 +85,7 @@ class ThreadController extends Controller
         return array(
             'entity' => $entity,
             'form'   => $form->createView(),
+            'page'   => "forum"
         );
     }
 
@@ -110,6 +111,7 @@ class ThreadController extends Controller
         return array(
             'entity'      => $entity,
             'delete_form' => $deleteForm->createView(),
+            'page'        => "forum"
         );
     }
 
@@ -137,6 +139,7 @@ class ThreadController extends Controller
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
+            'page'        => "forum"
         );
     }
 
@@ -189,6 +192,7 @@ class ThreadController extends Controller
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
+            'page'        => "forum"
         );
     }
     /**

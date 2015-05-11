@@ -44,7 +44,8 @@ class ForumController extends Controller
 
         return array(
             'pagination' => $pagination,
-            'form'     => $this->createCreateForm($entity)->createView()
+            'form'       => $this->createCreateForm($entity)->createView(),
+            'page'       => "forum"
         );
     }
 
@@ -81,6 +82,7 @@ class ForumController extends Controller
         return array(
             'entity' => $entity,
             'form'   => $form->createView(),
+            'page'   => "forum"
         );
     }
 
@@ -132,6 +134,7 @@ class ForumController extends Controller
         return array(
             'entity' => $entity,
             'form'   => $form->createView(),
+            'page'   => "forum"
         );
     }
 
@@ -158,7 +161,8 @@ class ForumController extends Controller
         return array(
             'entity'      => $entity,
             'delete_form' => $deleteForm->createView(),
-            'post_form'   => $postForm->createView()
+            'post_form'   => $postForm->createView(),
+            'page'        => "forum"
         );
     }
 
@@ -215,6 +219,7 @@ class ForumController extends Controller
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
+            'page'        => "forum"
         );
     }
 
@@ -272,6 +277,7 @@ class ForumController extends Controller
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
+            'page'        => "forum"
         );
     }
 
