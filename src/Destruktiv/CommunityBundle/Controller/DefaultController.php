@@ -14,8 +14,18 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
+        $em = $this->getDoctrine()->getEntityManager();
+
+        $threadRepo = $em->getRepository("DestruktivForumBundle:Thread");
+        $threads = $threadRepo->createQueryBuilder("t")
+            ->orderBy("t.dateUpdated", "DESC")
+            ->setMaxResults(5)
+            ->getQuery()
+            ->getResult();
+
         return [
-            "page" => "home"
+            "threads" => $threads,
+            "page"    => "home"
         ];
     }
 }

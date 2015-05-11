@@ -5,4 +5,29 @@
         <h1>Hej, världen!</h1>
         <p>Det här är min utvecklingsserver.</p>
     </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">Senast i forumet</div>
+                <div class="list-group">
+                    {% for thread in threads %}
+                        <a href="{{ path('forum_show', { 'id': thread.id }) }}" class="list-group-item">
+                            <small class="text-muted pull-right">{{ thread.dateUpdated|time_ago_in_words }}</small>
+                            {{ thread.title }}
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">Senast ...</div>
+                <div class="panel-body">
+                    ...
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
