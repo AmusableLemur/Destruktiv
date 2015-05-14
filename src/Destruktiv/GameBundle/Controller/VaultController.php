@@ -29,7 +29,10 @@ class VaultController extends Controller
      */
     public function adminAction(Request $request)
     {
-        $levels = [];
+        $em = $this->getDoctrine()->getManager();
+
+        $query = $em->createQuery('SELECT v FROM DestruktivGameBundle:VaultLevel v ORDER BY v.level');
+        $levels = $query->getResult();
         $level = new VaultLevel();
         $form = $this->createAdminForm($level)
             ->add("spara", "submit");
@@ -37,8 +40,6 @@ class VaultController extends Controller
         $form->handleRequest($request);
 
         if ($form->isValid()) {
-            $em = $this->getDoctrine()->getEntityManager();
-
             $em->persist($level);
             $em->flush();
 

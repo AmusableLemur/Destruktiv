@@ -15,5 +15,9 @@
         Välkommen till valvet
     </h1>
 
+    {% for level in levels %}
+        {{ level.level }}
+    {% endfor %}
+
     {{ form(form) }}
 {% endblock %}
