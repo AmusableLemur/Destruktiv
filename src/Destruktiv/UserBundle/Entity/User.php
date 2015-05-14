@@ -40,6 +40,11 @@ class User extends BaseUser
      **/
     private $posts;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Destruktiv\GameBundle\Entity\VaultLevel")
+     */
+    private $vaultLevel;
+
 
     /**
      * Constructor
@@ -113,5 +118,63 @@ class User extends BaseUser
     public function getThreads()
     {
         return $this->threads;
+    }
+
+    /**
+     * Add post
+     *
+     * @param \Destruktiv\ForumBundle\Entity\Post $post
+     *
+     * @return User
+     */
+    public function addPost(\Destruktiv\ForumBundle\Entity\Post $post)
+    {
+        $this->posts[] = $post;
+
+        return $this;
+    }
+
+    /**
+     * Remove post
+     *
+     * @param \Destruktiv\ForumBundle\Entity\Post $post
+     */
+    public function removePost(\Destruktiv\ForumBundle\Entity\Post $post)
+    {
+        $this->posts->removeElement($post);
+    }
+
+    /**
+     * Get posts
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPosts()
+    {
+        return $this->posts;
+    }
+
+    /**
+     * Set vaultLevel
+     *
+     * @param \Destruktiv\GameBundle\Entity\VaultLevel $vaultLevel
+     *
+     * @return User
+     */
+    public function setVaultLevel(\Destruktiv\GameBundle\Entity\VaultLevel $vaultLevel = null)
+    {
+        $this->vaultLevel = $vaultLevel;
+
+        return $this;
+    }
+
+    /**
+     * Get vaultLevel
+     *
+     * @return \Destruktiv\GameBundle\Entity\VaultLevel
+     */
+    public function getVaultLevel()
+    {
+        return $this->vaultLevel;
     }
 }

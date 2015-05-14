@@ -3,6 +3,11 @@ destruktiv_admin:
     type:     annotation
     prefix:   /admin
 
+destruktiv_game:
+    resource: "@DestruktivGameBundle/Controller/"
+    type:     annotation
+    prefix:   /game
+
 destruktiv_forum:
     resource: "@DestruktivForumBundle/Controller/"
     type:     annotation

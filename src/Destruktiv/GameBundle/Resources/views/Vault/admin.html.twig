@@ -1,0 +1,24 @@
+{% extends "::base.html.twig" %}
+
+{% block body %}
+    <ul class="breadcrumb">
+        <li>Spel</li>
+        <li>Valvet</li>
+        <li class="active">Admin</li>
+    </ul>
+
+    <h1>
+        <a href="{{ path("vault") }}" class="btn btn-default pull-right">
+            <i class="fa fa-chevron-left fa-fw"></i>
+            Tillbaka
+        </a>
+        Välkommen till valvet
+    </h1>
+
+    {% for level in levels %}
+        <a href="{{ path("vault_admin", {edit: level.id}) }}" class="btn btn-default">{{ level.level }}</a>
+    {% endfor %}
+
+    <h2>Lägg till ny nivå</h2>
+    {{ form(form) }}
+{% endblock %}

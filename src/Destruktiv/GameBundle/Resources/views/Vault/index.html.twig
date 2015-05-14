@@ -1,0 +1,32 @@
+{% extends "::base.html.twig" %}
+
+{% block body %}
+    <ul class="breadcrumb">
+        <li>Spel</li>
+        <li>Valvet</li>
+        <li class="active">Level X</li>
+    </ul>
+
+    <h1>
+        {% if is_granted("ROLE_ADMIN") %}
+            <a href="{{ path("vault_admin") }}" class="btn btn-default pull-right">
+                <i class="fa fa-cog fa-fw"></i>
+                Admin
+            </a>
+        {% endif %}
+
+        {% if level is null %}
+            Grattis?
+        {% else %}
+            Välkommen till valvet &ndash; #{{ level.level }}
+        {% endif %}
+    </h1>
+
+    {% if level is not null %}
+        <div class="well text-center">
+            {{ level.hint|raw }}
+        </div>
+
+        {{ form(form) }}
+    {% endif %}
+{% endblock %}
