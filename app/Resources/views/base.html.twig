@@ -53,6 +53,7 @@
                         {{ app.user.username }}<br>
                         <small>{{ app.user.email }}</small>
                     </h4>
+
                     <div class="list-group">
                         <a href="{{ path("fos_user_profile_show") }}" class="list-group-item">
                             <i class="fa fa-user fa-fw"></i>
@@ -61,6 +62,13 @@
                         <a href="{{ path("fos_user_security_logout") }}" class="list-group-item">
                             <i class="fa fa-sign-out fa-fw"></i>
                             Logga ut
+                        </a>
+                    </div>
+
+                    <div class="list-group">
+                        <a href="{{ path("admin") }}" class="list-group-item">
+                            <i class="fa fa-cog fa-fw"></i>
+                            Admin
                         </a>
                     </div>
                 {% else %}
