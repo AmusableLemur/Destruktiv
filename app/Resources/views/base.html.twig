@@ -38,17 +38,19 @@
                         <li {% if page is defined and page == "forum" %}class="active"{% endif %}><a href="{{ path("forum") }}">
                             Forum
                         </a></li>
-                        <li class="dropdown {% if page is defined and page == "games" %}active{% endif %}">
-                            <a href="#" data-toggle="dropdown">
-                                Spel
-                                <i class="fa fa-caret-down"></i>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="{{ path("vault") }}">
-                                    Valvet
-                                </a></li>
-                            </ul>
-                        </li>
+                        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                            <li class="dropdown {% if page is defined and page == "games" %}active{% endif %}">
+                                <a href="#" data-toggle="dropdown">
+                                    Spel
+                                    <i class="fa fa-caret-down"></i>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{{ path("vault") }}">
+                                        Valvet
+                                    </a></li>
+                                </ul>
+                            </li>
+                        {% endif %}
                     </ul>
                 </div>
             </div>
