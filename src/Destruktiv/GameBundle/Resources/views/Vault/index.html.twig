@@ -9,7 +9,7 @@
 
     <h1>
         {% if is_granted("ROLE_ADMIN") %}
-            <a href="#" class="btn btn-primary pull-right">
+            <a href="{{ path("vault_admin") }}" class="btn btn-primary pull-right">
                 <i class="fa fa-cog fa-fw"></i>
                 Admin
             </a>
