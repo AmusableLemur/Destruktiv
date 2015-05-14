@@ -16,6 +16,7 @@ class VaultController extends Controller
      */
     public function indexAction(Request $request)
     {
+        $em = $this->getDoctrine()->getManager();
         $level = $this->getUser()->getVaultLevel();
 
         if ($level === null) {
