@@ -65,12 +65,14 @@
                         </a>
                     </div>
 
-                    <div class="list-group">
-                        <a href="{{ path("admin") }}" class="list-group-item">
-                            <i class="fa fa-cog fa-fw"></i>
-                            Admin
-                        </a>
-                    </div>
+                    {% if is_granted("ROLE_ADMIN") %}
+                        <div class="list-group">
+                            <a href="{{ path("admin") }}" class="list-group-item">
+                                <i class="fa fa-cog fa-fw"></i>
+                                Admin
+                            </a>
+                        </div>
+                    {% endif %}
                 {% else %}
                     <form action="{{ path("fos_user_security_check") }}" method="post">
                         <input type="hidden" name="_csrf_token" value="{{ fos_csrf_provider.generateCsrfToken('authenticate') }}">
