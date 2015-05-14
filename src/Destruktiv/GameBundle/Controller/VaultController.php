@@ -24,6 +24,23 @@ class VaultController extends Controller
     }
 
     /**
+     * @Route("/vault/{level}", name="vault_level", requirements={
+     *     "level": "\d+"
+     * })
+     * @Template()
+     */
+    public function levelAction($level)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $level = $em->getRepository('DestruktivGameBundle:VaultLevel')->findOneByLevel($level);
+
+        return [
+            "page" => "games",
+            "level" => $level
+        ];
+    }
+
+    /**
      * @Route("/vault/admin", name="vault_admin")
      * @Template()
      */
