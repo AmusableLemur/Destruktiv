@@ -1,5 +1,21 @@
 {% extends "::base.html.twig" %}
 
 {% block body %}
-    hello
+    <ul class="breadcrumb">
+        <li>Spel</li>
+        <li>Valvet</li>
+        <li class="active">Level X</li>
+    </ul>
+
+    <h1>
+        {% if is_granted("ROLE_ADMIN") %}
+            <a href="#" class="btn btn-primary pull-right">
+                <i class="fa fa-cog fa-fw"></i>
+                Admin
+            </a>
+        {% endif %}
+        Välkommen till valvet
+    </h1>
+
+    <div class="content"></div>
 {% endblock %}
