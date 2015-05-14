@@ -30,10 +30,14 @@ class VaultController extends Controller
     public function adminAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
+        $level = new VaultLevel();
+
+        if ($request->get("edit") !== null) {
+            $level = $em->getRepository('DestruktivGameBundle:VaultLevel')->findOneById($request->get("edit"));
+        }
 
         $query = $em->createQuery('SELECT v FROM DestruktivGameBundle:VaultLevel v ORDER BY v.level');
         $levels = $query->getResult();
-        $level = new VaultLevel();
         $form = $this->createAdminForm($level)
             ->add("spara", "submit");
 
@@ -53,21 +57,6 @@ class VaultController extends Controller
             "levels" => $levels,
             "form" => $form->createView()
         ];
-    }
-
-    /**
-     * @Route("/vault/admin/{id}", name="vault_edit")
-     * @Template()
-     */
-    public function editAction()
-    {
-    }
-
-    /**
-     * @Route("/vault/admin/{id}/delete", name="vault_delete")
-     */
-    public function deleteAction()
-    {
     }
 
     private function createAdminForm(VaultLevel $level) {

@@ -16,8 +16,9 @@
     </h1>
 
     {% for level in levels %}
-        {{ level.level }}
+        <a href="{{ path("vault_admin", {edit: level.id}) }}" class="btn btn-default">{{ level.level }}</a>
     {% endfor %}
 
+    <h2>Lägg till ny nivå</h2>
     {{ form(form) }}
 {% endblock %}
