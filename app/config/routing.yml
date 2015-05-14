@@ -6,7 +6,7 @@ destruktiv_admin:
 destruktiv_game:
     resource: "@DestruktivGameBundle/Controller/"
     type:     annotation
-    prefix:   /
+    prefix:   /game
 
 destruktiv_forum:
     resource: "@DestruktivForumBundle/Controller/"
