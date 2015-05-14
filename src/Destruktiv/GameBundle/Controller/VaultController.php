@@ -4,6 +4,7 @@ namespace Destruktiv\GameBundle\Controller;
 
 use Destruktiv\GameBundle\Entity\VaultLevel;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
@@ -15,6 +16,8 @@ class VaultController extends Controller
      */
     public function indexAction()
     {
+        // Redirect to appropriate level
+
         return [
             "page" => "games"
         ];
@@ -24,13 +27,30 @@ class VaultController extends Controller
      * @Route("/vault/admin", name="vault_admin")
      * @Template()
      */
-    public function adminAction()
+    public function adminAction(Request $request)
     {
         $levels = [];
+        $level = new VaultLevel();
+        $form = $this->createAdminForm($level)
+            ->add("spara", "submit");
+
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $em = $this->getDoctrine()->getEntityManager();
+
+            $em->persist($level);
+            $em->flush();
+
+            return $this->redirect(
+                $this->generateUrl("vault_admin")
+            );
+        }
 
         return [
             "page" => "games",
-            "levels" => $levels
+            "levels" => $levels,
+            "form" => $form->createView()
         ];
     }
 
@@ -43,25 +63,24 @@ class VaultController extends Controller
     }
 
     /**
-     * @Route("/vault/admin/new", name="vault_new")
-     * @Template()
-     */
-    public function createAction()
-    {
-    }
-
-    /**
      * @Route("/vault/admin/{id}/delete", name="vault_delete")
      */
     public function deleteAction()
     {
     }
 
-    private function getAdminForm(VaultLevel $level) {
+    private function createAdminForm(VaultLevel $level) {
         return $this->createFormBuilder($level)
-            ->add("level")
-            ->add("hint")
-            ->add("password")
+            ->add("level", "integer", [
+                "label" => "Nivå"
+            ])
+            ->add("hint", "textarea", [
+                "label" => "Hint"
+            ])
+            ->add("password", "text", [
+                "label" => "Lösenord",
+                "required" => false
+            ])
             ->getForm();
     }
 }
