@@ -7,6 +7,7 @@ This is the code that powers [destruktiv.se](http://www.destruktiv.se).
 Requirements
 ------------
  * PHP 5.4
+ * [PHP Sundown](https://github.com/chobie/php-sundown)
 
 License
 -------
