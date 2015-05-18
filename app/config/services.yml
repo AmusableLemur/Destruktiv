@@ -9,11 +9,14 @@ services:
         arguments: [@translator]
         tags:
             - { name: twig.extension }
-    aptoma.commonmark:
-        class: Aptoma\Twig\Extension\MarkdownEngine\PHPLeagueCommonMarkEngine
-    aptoma.twig.markdown:
-        class: Aptoma\Twig\Extension\MarkdownExtension
-        arguments: [@aptoma.commonmark]
+    chobie_sundown_render:
+        class: Sundown\Render\HTML
+    chobie_sundown_markdown:
+        class: Sundown\Markdown
+        arguments: ["@chobie_sundown_render", "%markdown_config%"]
+    destruktiv_markdown:
+        class: Destruktiv\ForumBundle\Twig\Extension\MarkdownExtension
+        arguments: [@chobie_sundown_markdown]
         tags:
             - { name: twig.extension }
 #    service_name:
