@@ -11,6 +11,7 @@ services:
             - { name: twig.extension }
     chobie_sundown_render:
         class: Sundown\Render\HTML
+        arguments: ["%markdown_config%"]
     chobie_sundown_markdown:
         class: Sundown\Markdown
         arguments: ["@chobie_sundown_render", "%markdown_config%"]
