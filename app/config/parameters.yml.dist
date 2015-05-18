@@ -18,3 +18,12 @@ parameters:
 
     # A secret key that's used to generate certain security-related tokens
     secret:            ThisTokenIsNotSoSecretChangeIt
+
+    # See https://github.com/chobie/php-sundown/blob/master/docs/ExtensionsAndRenderFlags.md
+    markdown_config:
+        fenced_code_blocks: true
+        filter_html: true
+        hard_wrap: true
+        no_images: true
+        safe_links_only: true
+        tables: true
