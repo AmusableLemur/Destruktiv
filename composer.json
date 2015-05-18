@@ -27,8 +27,6 @@
         "doctrine/doctrine-fixtures-bundle": "2.2.*@dev",
         "friendsofsymfony/user-bundle": "~1.3",
         "salavert/time-ago-in-words": "1.*",
-        "aptoma/twig-markdown": "~1.1",
-        "league/commonmark": "~0.5",
         "knplabs/knp-paginator-bundle": "~2.4"
     },
     "require-dev": {
