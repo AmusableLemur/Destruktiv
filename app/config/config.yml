@@ -140,6 +140,11 @@ fos_user:
         form:
             type: destruktiv_user_registration
 
+fos_message:
+    db_driver: orm
+    thread_class: Destruktiv\CommunityBundle\Entity\Thread
+    message_class: Destruktiv\CommunityBundle\Entity\Message
+
 # Paginator Configuration
 knp_paginator:
     page_range: 5
