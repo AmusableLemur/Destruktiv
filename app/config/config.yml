@@ -142,7 +142,7 @@ fos_user:
 
 fos_message:
     db_driver: orm
-    thread_class: Destruktiv\CommunityBundle\Entity\Thread
+    thread_class: Destruktiv\CommunityBundle\Entity\MessageThread
     message_class: Destruktiv\CommunityBundle\Entity\Message
 
 # Paginator Configuration
