@@ -19,7 +19,7 @@ class ThreadMetadata extends BaseThreadMetadata
 
     /**
      * @ORM\ManyToOne(
-     *   targetEntity="Destruktiv\CommunityBundle\Entity\Thread",
+     *   targetEntity="Destruktiv\CommunityBundle\Entity\MessageThread",
      *   inversedBy="metadata"
      * )
      * @var \FOS\MessageBundle\Model\ThreadInterface

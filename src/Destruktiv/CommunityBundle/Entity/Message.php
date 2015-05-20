@@ -20,7 +20,7 @@ class Message extends BaseMessage
 
     /**
      * @ORM\ManyToOne(
-     *   targetEntity="Destruktiv\CommunityBundle\Entity\Thread",
+     *   targetEntity="Destruktiv\CommunityBundle\Entity\MessageThread",
      *   inversedBy="messages"
      * )
      * @var \FOS\MessageBundle\Model\ThreadInterface

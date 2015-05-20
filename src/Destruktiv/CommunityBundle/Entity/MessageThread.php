@@ -9,7 +9,7 @@ use FOS\MessageBundle\Entity\Thread as BaseThread;
 /**
  * @ORM\Entity
  */
-class Thread extends BaseThread
+class MessageThread extends BaseThread
 {
     /**
      * @ORM\Id
@@ -35,7 +35,7 @@ class Thread extends BaseThread
 
     /**
      * @ORM\OneToMany(
-     *   targetEntity="Destruktiv\CommunityBundle\Entity\ThreadMetadata",
+     *   targetEntity="Destruktiv\CommunityBundle\Entity\MessageThreadMetadata",
      *   mappedBy="thread",
      *   cascade={"all"}
      * )
