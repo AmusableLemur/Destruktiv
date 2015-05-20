@@ -18,6 +18,7 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new FOS\UserBundle\FOSUserBundle(),
+            new FOS\MessageBundle\FOSMessageBundle(),
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
             new Destruktiv\CommunityBundle\DestruktivCommunityBundle(),
             new Destruktiv\UserBundle\DestruktivUserBundle(),
