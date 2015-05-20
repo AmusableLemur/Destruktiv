@@ -8,7 +8,7 @@ use FOS\MessageBundle\Entity\ThreadMetadata as BaseThreadMetadata;
 /**
  * @ORM\Entity
  */
-class ThreadMetadata extends BaseThreadMetadata
+class MessageThreadMetadata extends BaseThreadMetadata
 {
     /**
      * @ORM\Id
