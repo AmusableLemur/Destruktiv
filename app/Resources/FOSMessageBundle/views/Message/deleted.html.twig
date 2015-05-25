@@ -1,0 +1,21 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    <ul class="breadcrumb">
+        <li>Meddelanden</li>
+        <li class="active">Borttaget</li>
+    </ul>
+
+    <a class="btn btn-primary btn-sm pull-right" href="{{ url('fos_message_thread_new' )}}">
+        <i class="fa fa-plus fa-fw"></i>
+        Nytt meddelande
+    </a>
+
+    <ul class="nav nav-tabs">
+        <li><a href="{{ url('fos_message_inbox') }}">Inkorg</a></li>
+        <li><a href="{{ url('fos_message_sent') }}">Skickat</a></li>
+        <li class="active"><a href="{{ url('fos_message_deleted') }}">Borttaget</a></li>
+    </ul>
+
+    {% include 'FOSMessageBundle:Message:threads_list.html.twig' with {'threads': threads} %}
+{% endblock %}
