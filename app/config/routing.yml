@@ -1,3 +1,8 @@
+destruktiv_redirect:
+    resource: "@DestruktivRedirectBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 destruktiv_admin:
     resource: "@DestruktivAdminBundle/Controller/"
     type:     annotation

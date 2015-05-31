@@ -25,6 +25,7 @@ class AppKernel extends Kernel
             new Destruktiv\ForumBundle\DestruktivForumBundle(),
             new Destruktiv\AdminBundle\DestruktivAdminBundle(),
             new Destruktiv\GameBundle\DestruktivGameBundle(),
+            new Destruktiv\RedirectBundle\DestruktivRedirectBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
