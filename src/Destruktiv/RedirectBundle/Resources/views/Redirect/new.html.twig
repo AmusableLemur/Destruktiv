@@ -10,7 +10,7 @@
         <div class="alert alert-success">
             <i class="fa fa-paper-plane fa-fw fa-3x pull-left"></i>
             <strong>Din redirect har skapats</strong><br>
-            <span>{{ url("redirect_show", {"id": app.request.get("link")}) }}</span>
+            <span>{{ url("redirect_show", {"link": app.request.get("link")}) }}</span>
         </div>
     {% endif %}
 

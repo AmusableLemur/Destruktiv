@@ -106,21 +106,23 @@ class RedirectController extends Controller
     /**
      * Finds and displays a Redirect entity.
      *
-     * @Route("/{id}", name="redirect_show")
+     * @Route("/{link}", name="redirect_show")
      * @Method("GET")
      * @Template()
      */
-    public function showAction($id)
+    public function showAction($link)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('DestruktivRedirectBundle:Redirect')->find($id);
+        $entity = $em->getRepository('DestruktivRedirectBundle:Redirect')->findOneByLink($link);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Redirect entity.');
+            throw $this->createNotFoundException('Hittade ingen redirect som matchade länken');
         }
 
-        $deleteForm = $this->createDeleteForm($id);
+        return $this->redirect($entity->getDestination());
+
+        $deleteForm = $this->createDeleteForm($link);
 
         return array(
             'entity'      => $entity,
