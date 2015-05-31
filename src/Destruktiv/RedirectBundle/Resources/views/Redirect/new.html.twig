@@ -14,5 +14,12 @@
         </div>
     {% endif %}
 
-    {{ form(form) }}
+    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+        {{ form(form) }}
+    {% else %}
+        <div class="alert alert-danger">
+            <i class="fa fa-exclamation-circle fa-fw"></i>
+            <strong>Den här funktionen är bara tillgänglig för inloggade användare.</strong>
+        </div>
+    {% endif %}
 {% endblock %}

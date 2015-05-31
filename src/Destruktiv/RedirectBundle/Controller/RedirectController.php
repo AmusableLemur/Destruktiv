@@ -26,6 +26,10 @@ class RedirectController extends Controller
      */
     public function createAction(Request $request)
     {
+        if (!$this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
+            throw $this->createAccessDeniedException();
+        }
+
         $entity = new Redirect();
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
@@ -139,6 +143,10 @@ class RedirectController extends Controller
      */
     public function editAction($id)
     {
+        if (!$this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
+            throw $this->createAccessDeniedException();
+        }
+
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('DestruktivRedirectBundle:Redirect')->find($id);
@@ -184,6 +192,10 @@ class RedirectController extends Controller
      */
     public function updateAction(Request $request, $id)
     {
+        if (!$this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
+            throw $this->createAccessDeniedException();
+        }
+
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('DestruktivRedirectBundle:Redirect')->find($id);
@@ -216,6 +228,10 @@ class RedirectController extends Controller
      */
     public function deleteAction(Request $request, $id)
     {
+        if (!$this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
+            throw $this->createAccessDeniedException();
+        }
+
         $form = $this->createDeleteForm($id);
         $form->handleRequest($request);
 
