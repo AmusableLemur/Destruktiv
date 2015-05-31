@@ -20,6 +20,7 @@ class AppKernel extends Kernel
             new FOS\UserBundle\FOSUserBundle(),
             new FOS\MessageBundle\FOSMessageBundle(),
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
+            new cayetanosoriano\HashidsBundle\cayetanosorianoHashidsBundle(),
             new Destruktiv\CommunityBundle\DestruktivCommunityBundle(),
             new Destruktiv\UserBundle\DestruktivUserBundle(),
             new Destruktiv\ForumBundle\DestruktivForumBundle(),

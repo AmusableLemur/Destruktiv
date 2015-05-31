@@ -27,3 +27,5 @@ parameters:
         no_images: true
         safe_links_only: true
         tables: true
+
+    hashid_salt:       ThisTokenIsNotSoSecretChangeIt

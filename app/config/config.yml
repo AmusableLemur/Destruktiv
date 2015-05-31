@@ -156,3 +156,7 @@ knp_paginator:
     template:
         pagination: KnpPaginatorBundle:Pagination:sliding.html.twig
         sortable: KnpPaginatorBundle:Pagination:sortable_link.html.twig
+
+cayetanosoriano_hashids:
+    salt: "%hashid_salt%"
+    min_hash_length: 8
