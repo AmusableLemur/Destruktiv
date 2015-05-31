@@ -31,15 +31,12 @@ class RedirectController extends Controller
         $form->handleRequest($request);
 
         if ($form->isValid()) {
-            // Change this
-            $entity->setLink(md5($entity->getDestination()));
-
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->flush();
 
             return $this->redirect($this->generateUrl('redirect_new', [
-                "link" => $entity->getLink()
+                "link" => $this->get("hashids")->encode($entity->getId())
             ]));
         }
 
@@ -113,8 +110,9 @@ class RedirectController extends Controller
     public function showAction($link)
     {
         $em = $this->getDoctrine()->getManager();
+        $id = $this->get("hashids")->decode($link);
 
-        $entity = $em->getRepository('DestruktivRedirectBundle:Redirect')->findOneByLink($link);
+        $entity = $em->getRepository('DestruktivRedirectBundle:Redirect')->findOneById($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Hittade ingen redirect som matchade länken');
@@ -122,8 +120,10 @@ class RedirectController extends Controller
 
         return $this->redirect($entity->getDestination());
 
+        // Delete form should only be created if the user should be able to delete the redirect
         $deleteForm = $this->createDeleteForm($link);
 
+        // If the user is logged in we should show a preview instead
         return array(
             'entity'      => $entity,
             'delete_form' => $deleteForm->createView(),

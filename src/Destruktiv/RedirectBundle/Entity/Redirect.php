@@ -17,11 +17,6 @@ class Redirect
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $link;
-
-    /**
      * @ORM\Column(type="string", length=512)
      */
     private $destination;
@@ -34,30 +29,6 @@ class Redirect
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set link
-     *
-     * @param string $link
-     *
-     * @return Redirect
-     */
-    public function setLink($link)
-    {
-        $this->link = $link;
-
-        return $this;
-    }
-
-    /**
-     * Get link
-     *
-     * @return string
-     */
-    public function getLink()
-    {
-        return $this->link;
     }
 
     /**
