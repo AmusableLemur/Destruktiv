@@ -17,24 +17,6 @@ use Destruktiv\RedirectBundle\Form\RedirectType;
  */
 class RedirectController extends Controller
 {
-
-    /**
-     * Lists all Redirect entities.
-     *
-     * @Route("/list", name="redirect")
-     * @Method("GET")
-     * @Template()
-     */
-    public function indexAction()
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $entities = $em->getRepository('DestruktivRedirectBundle:Redirect')->findAll();
-
-        return array(
-            'entities' => $entities,
-        );
-    }
     /**
      * Creates a new Redirect entity.
      *
@@ -49,17 +31,33 @@ class RedirectController extends Controller
         $form->handleRequest($request);
 
         if ($form->isValid()) {
+            // Change this
+            $entity->setLink(md5($entity->getDestination()));
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('redirect_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('redirect_new', [
+                "link" => $entity->getLink()
+            ]));
         }
 
         return array(
-            'entity' => $entity,
-            'form'   => $form->createView(),
+            'entity'   => $entity,
+            'entities' => $this->getRedirects(),
+            'form'     => $form->createView(),
         );
+    }
+
+    /**
+     * @todo This should make sure that only links a user has created are listed
+     */
+    private function getRedirects()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        return $em->getRepository('DestruktivRedirectBundle:Redirect')->findAll();
     }
 
     /**
@@ -76,7 +74,12 @@ class RedirectController extends Controller
             'method' => 'POST',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Create'));
+        $form->add('submit', 'submit', [
+            'label' => 'Skapa redirect',
+            'attr'  => [
+                "class" => "btn-default btn-block"
+            ]
+        ]);
 
         return $form;
     }
@@ -94,8 +97,9 @@ class RedirectController extends Controller
         $form   = $this->createCreateForm($entity);
 
         return array(
-            'entity' => $entity,
-            'form'   => $form->createView(),
+            'entity'   => $entity,
+            'entities' => $this->getRedirects(),
+            'form'     => $form->createView(),
         );
     }
 

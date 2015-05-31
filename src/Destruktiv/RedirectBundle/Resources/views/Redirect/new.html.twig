@@ -6,11 +6,13 @@
         <small>Julius Caesarsallad</small>
     </blockquote>
 
-    {{ form(form) }}
-
-    {% if is_granted("ROLE_ADMIN") %}
-        <a href="{{ path('redirect') }}">
-            Alla redirects
-        </a>
+    {% if app.request.get("link") is not null %}
+        <div class="alert alert-success">
+            <i class="fa fa-paper-plane fa-fw fa-3x pull-left"></i>
+            <strong>Din redirect har skapats</strong><br>
+            <span>{{ url("redirect_show", {"id": app.request.get("link")}) }}</span>
+        </div>
     {% endif %}
+
+    {{ form(form) }}
 {% endblock %}
