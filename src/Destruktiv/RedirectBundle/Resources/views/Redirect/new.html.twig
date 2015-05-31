@@ -1,15 +1,16 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <h1>Redirect creation</h1>
+    <blockquote>
+        <p>Veni Vidi Ridi Rekt</p>
+        <small>Julius Caesarsallad</small>
+    </blockquote>
 
     {{ form(form) }}
 
-        <ul class="record_actions">
-    <li>
+    {% if is_granted("ROLE_ADMIN") %}
         <a href="{{ path('redirect') }}">
-            Back to the list
+            Alla redirects
         </a>
-    </li>
-</ul>
+    {% endif %}
 {% endblock %}

@@ -15,11 +15,16 @@ class RedirectType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('link')
-            ->add('destination')
+            ->add("destination", "url", [
+                "label" => false,
+                "attr" => [
+                    "autofocus" => true,
+                    "placeholder" => "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+                ]
+            ])
         ;
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */

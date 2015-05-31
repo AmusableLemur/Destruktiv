@@ -21,7 +21,7 @@ class RedirectController extends Controller
     /**
      * Lists all Redirect entities.
      *
-     * @Route("/", name="redirect")
+     * @Route("/list", name="redirect")
      * @Method("GET")
      * @Template()
      */
@@ -84,7 +84,7 @@ class RedirectController extends Controller
     /**
      * Displays a form to create a new Redirect entity.
      *
-     * @Route("/new", name="redirect_new")
+     * @Route("/", name="redirect_new")
      * @Method("GET")
      * @Template()
      */
