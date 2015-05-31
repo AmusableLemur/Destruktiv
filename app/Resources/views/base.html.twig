@@ -54,6 +54,17 @@
                                 </ul>
                             </li>
                         {% endif %}
+                        <li class="dropdown {% if page is defined and page == "games" %}active{% endif %}">
+                            <a href="#" data-toggle="dropdown">
+                                Övrigt
+                                <i class="fa fa-caret-down"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{ path("redirect") }}">
+                                    RedireKt
+                                </a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </div>
