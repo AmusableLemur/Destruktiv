@@ -1,0 +1,51 @@
+html, body {
+    background-color: #1c1e22;
+}
+
+label {
+    font-weight: normal;
+}
+
+.title {
+    margin-bottom: 30px;
+    margin-top: 0px;
+}
+
+.white-background {
+    background-color: #272B30;
+    border-radius: 0 0 4px 4px;
+    padding-bottom: 20px;
+}
+
+.username {
+    line-height: 1em;
+    margin-top: 0;
+}
+
+.banner {
+    margin-bottom: 20px;
+}
+
+.banner img {
+    max-width: 100%;
+}
+
+.sidebar-tab {
+    border: 1px solid #dfd7ca;
+    border-radius: 0 0 4px 4px;
+    border-top: none;
+    padding: 20px;
+    margin-bottom: 20px
+}
+
+.settings.tab-content {
+    margin-top: 10px;
+}
+
+.navbar {
+    border-radius: 0 0 4px 4px;
+}
+
+table a.thread:not(.btn), .table a.thread:not(.btn) {
+    text-decoration: none;
+}
