@@ -1,7 +1,3 @@
-html, body {
-    background-color: #1c1e22;
-}
-
 label {
     font-weight: normal;
 }
@@ -12,7 +8,6 @@ label {
 }
 
 .white-background {
-    background-color: #272B30;
     border-radius: 0 0 4px 4px;
     padding-bottom: 20px;
 }
@@ -32,7 +27,6 @@ label {
 
 .sidebar-tab {
     border: 1px solid #dfd7ca;
-    border-radius: 0 0 4px 4px;
     border-top: none;
     padding: 20px;
     margin-bottom: 20px
@@ -40,10 +34,6 @@ label {
 
 .settings.tab-content {
     margin-top: 10px;
-}
-
-.navbar {
-    border-radius: 0 0 4px 4px;
 }
 
 table a.thread:not(.btn), .table a.thread:not(.btn) {
