@@ -19,6 +19,9 @@ security:
             lazy: true
             provider: app_user_provider
 
+            login_throttling:
+                max_attempts: 3
+
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#firewalls-authentication
 
