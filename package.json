@@ -2,6 +2,7 @@
     "devDependencies": {
         "@symfony/stimulus-bridge": "^2.0.0",
         "@symfony/webpack-encore": "^1.0.0",
+        "@tabler/icons": "^1.39.1",
         "bootstrap": "^4.6.0",
         "bootswatch": "^4.6.0",
         "core-js": "^3.0.0",
