@@ -74,25 +74,25 @@
                         <form action="{{ path('app_login') }}" method="post">
                             <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
-                            {% if error is defined and error %}
-                                <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-                            {% endif %}
-                            
                             <div class="form-group">
                                 <label>Användarnamn</label>
                                 <input type="text" name="username" class="form-control" placeholder="Användarnamn" {% if last_username is defined %}value="{{ last_username }}"{% endif %} required>
                             </div>
+
                             <div class="form-group">
                                 <label>Lösenord</label>
                                 <input type="password" name="password" class="form-control" placeholder="Lösenord" required>
                             </div>
+
                             <div class="checkbox">
                                 <label>
                                     <input type="checkbox" name="_remember_me">
                                     Logga inte ut mig automatiskt
                                 </label>
                             </div>
+
                             <button type="submit" class="btn btn-primary btn-block">Logga in</button>
+                            
                             <p style="margin-top:5px">
                                 <a href="#register" data-toggle="modal">Skapa användare</a>
                             </p>
